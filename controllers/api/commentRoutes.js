@@ -38,8 +38,8 @@ router.get('/:id', async (req, res) => {
 // Post a new comment
 router.post('/', withAuth, async (req, res) => {
     try {
-        const newComment = await Medication.create({
-            comment_text: req.body.comment_text,
+        const newComment = await Comment.create({
+            description: req.body.description,
             post_id: req.body.post_id,
             user_id: req.session.user_id,
         });
