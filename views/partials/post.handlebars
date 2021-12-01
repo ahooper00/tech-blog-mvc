@@ -1,0 +1,26 @@
+<div class="card m-6">
+    <header class="card-header card-header-title background-grey">
+
+        <div class="column">
+            <p class=" has-text-primary-light"></p>
+            <a href="/post/{{id}}" class="text-black text-left">{{title}} </a></p>
+        </div>
+
+        <div class="column">
+        </div>
+
+    </header>
+
+    <div class="card-content">
+        <div class="content text-justified">
+            {{post_content}}
+        </div>
+        <div class="is-pulled-right">
+            <b>{{user.username}}</b> |
+            <a href="https://linkedIn.com/{{user.linkedin}}"><i class="user-linkedin"></i></a>
+            <a href="https://github.com/{{user.github}}"><i class="user-github"></i></a>
+            | {{format_date created_at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment"
+                comments.length}}</a>
+        </div>
+
+    </div>
