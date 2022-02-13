@@ -1,0 +1,69 @@
+<div class="card m-6">
+    <header class="card-header card-header-title background-grey">
+
+        <div class="column">
+            <p class=" has-text-primary-light"></p>
+            <a href="/post/{{id}}" class="text-black text-left">{{post.title}} </a></p>
+        </div>
+
+        <div class="column">
+        </div>
+
+    </header>
+
+    <div class="card-content">
+        <div class="content text-justified">
+            {{post.content}}
+        </div>
+        <div class="is-pulled-right">
+            <b>{{user.username}}</b> |
+            <a href="https://github.com/{{post.user.github}}"><i class="user-github"></i></a>
+            <a href="/post/{{id}}">{{post.comments.length}} {{format_plural "comment"
+                post.comments.length}}</a>
+        </div>
+
+    </div>
+
+    <div class="card m-5 poppins post-id">
+        <h5 class="card-header">{{post.title}}</a></h5>
+        <div class="card-body">
+            <p class="card-text">{{post.content}}</p>
+            <div class="text-muted space-between">
+                <ul>
+                    <li>Created by
+                        {{post.user.username}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="card m-5 poppins">
+        <h5 class="card-header">Comments</a></h5>
+        <div class="card-body">
+            {{#each post.comments as |comment|}}
+            <p class="card-text">{{comment.description}}</p>
+            <div class="text-muted space-between">
+                <ul>
+                    <li>{{comment.user.username}}</li>
+                </ul>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
+    {{#if logged_in}}
+    <form class="add-comment" post_id="{{post.id}}">
+        <div class="form-group mt-1 p-2">
+            <label for="addComment">Comment:</label>
+            <textarea type="input" class="form-control" id="addComment" rows="3" placeholder="Enter comment"></textarea>
+        </div>
+
+        <div class="d-md-flex justify-content">
+            <button class="btn-sm poppins" type="submit">Add Comment</button>
+        </div>
+    </form>
+    {{/if}}
+    <script src="/js/comment.js"></script>
+</div>

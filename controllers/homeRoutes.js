@@ -8,7 +8,7 @@ router.get('/homepage', (req, res) => {
             attributes: [
                 'id',
                 'title',
-                'description'
+                'content'
             ],
             include: [
                 {
@@ -57,7 +57,7 @@ router.get('/post/:id', (req, res) => {
         attributes: [
             'id',
             'title',
-            'desription'
+            'content'
         ],
         include: [
             {
@@ -83,8 +83,9 @@ router.get('/post/:id', (req, res) => {
             // serialize the data
             const post = dbPostData.get({ plain: true });
 
+            console.log(JSON.stringify(post));
             // pass data to template
-            res.render('single-post', {
+            res.render('post', {
                 post,
                 logged_in: req.session.logged_in
             });

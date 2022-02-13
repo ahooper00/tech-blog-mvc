@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get all posts in descending order of date (earliest post first)
+// Get all posts
 router.get('/', async (req, res) => {
     // Find all posts
     try {
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
             {
                 attributes: ['id',
                     'title',
-                    'description',
+                    'content',
                 ],
                 include: [{
                     model: User,
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'description', 'post_id', 'user_id'],
+                    attributes: ['id', 'content', 'post_id', 'user_id'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
             },
             attributes: [
                 'id',
-                'description',
+                'content',
                 'title',
             ],
             include: [{
@@ -51,7 +51,7 @@ router.get('/:id', async (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['id', 'description', 'post_id', 'user_id'],
+                attributes: ['id', 'content', 'post_id', 'user_id'],
                 include: {
                     model: User,
                     attributes: ['username']

@@ -15,19 +15,14 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
             <a class="navbar-brand" href="/homepage">Home</a>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/api/post">Browse Posts</a>
-                </li>
                 {{#if logged_in}}
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Create Post<span class="sr-only"></span></a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" id="logout" href="#">Logout</a>
                 </li>
                 {{else}}
-                {{!-- <a href="/" class="navbar-item is-hoverable pt-1">homepage</a> --}}
-                <a href="/login" class="button is-primary">login</a>
+                <li class="nav-item">
+                    <a href="/login" class="button is-primary">login</a>
+                </li>
             </ul>
             {{/if}}
             <form class="form-inline d-flex flex-row my-2 my-lg-0">
@@ -39,25 +34,15 @@
 </header>
 
 <main class="container">
-    <h1 class="display-2 py-5">Hello, User</h1>
 
     <body>
         {{{ body }}}
     </body>
 </main>
-{{!--
-<script src="/js/logout.js"></script> --}}
+
+<script src="/js/logout.js"></script>
 
 <footer class="footer rows p-4 text-center">
-    {{!-- <div class="row-is-full content has-text-centered">
-        <p>
-            <a href="/homepage">homepage</a>{{#if logged_in}} |
-            <a href="/homepage/create/">create new post</a>
-            {{else}}
-            | <a href="/login/">login</a>
-            {{/if}}
-        </p>
-    </div> --}}
     <div class="row-is-full content has-text-centered">
         <p>
             <strong>A tech blog</strong> by<a href="https://ahooper00@github.com"> Amelia Hooper</a>
