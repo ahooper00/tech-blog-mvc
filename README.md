@@ -21,11 +21,10 @@ Alternatively, this application is deployed to Heroku, which makes it easy to si
 ## Contributing
 To contribute to the project, simply perform a git clone of the repository. For any changes made, a pull request is required, and I will determine whether to merge the changes or not.
 ## Application
-- Heroku: [Deployed application](https://lets-get-hopping.herokuapp.com/home)
+- Heroku: [Deployed application](https://mvc-tech-blog-ah.herokuapp.com/)
 - GitHub repo: [Tech Blog ](https://github.com/ahooper00/tech-blog-mvc)
 
-![screenshot](client/src/assets/screenshot.jpg)
-![screenshot-2](client/src/assets/screenshot-2.jpg)
+![screenshot](/assets/screenshot.png)
 
 # Questions
 - ahooper00@github.com
