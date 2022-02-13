@@ -54,7 +54,7 @@ router.post('/', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const updateComment = await Comment.update({
-            comment_text: req.body.comment_text,
+            description: req.body.description,
         },
             {
                 where: {

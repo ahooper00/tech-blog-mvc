@@ -10,11 +10,7 @@ router.get('/', async (req, res) => {
             {
                 attributes: ['id',
                     'title',
-                    'content',
-                    'created_at'
-                ],
-                order: [
-                    ['created_at', 'DESC']
+                    'description',
                 ],
                 include: [{
                     model: User,
@@ -22,7 +18,7 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'description', 'post_id', 'user_id'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -44,10 +40,10 @@ router.get('/:id', async (req, res) => {
             where: {
                 id: req.params.id
             },
-            attributes: ['id',
-                'content',
+            attributes: [
+                'id',
+                'description',
                 'title',
-                'created_at'
             ],
             include: [{
                 model: User,
@@ -55,7 +51,7 @@ router.get('/:id', async (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'description', 'post_id', 'user_id'],
                 include: {
                     model: User,
                     attributes: ['username']

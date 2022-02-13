@@ -44,13 +44,13 @@ router.get('/:id', async (req, res) => {
                                 'id',
                                 'title',
                                 'content',
-                                'created_at'
+                                'dateCreate'
                             ]
                         },
 
                         {
                             model: Comment,
-                            attributes: ['id', 'comment_text', 'created_at'],
+                            attributes: ['id', 'description'],
                             include: {
                                 model: Post,
                                 attributes: ['title']
@@ -121,7 +121,7 @@ router.post('/login', async (req, res) => {
             req.session.username = userData.username;
             req.session.logged_in = true;
 
-            res.status(200).json({ message: "Successfully logged in!" })
+            res.status(200).json({ message: "Successfully logged in!" });
         });
     } catch (err) {
         res.status(400).json(err)
@@ -132,10 +132,10 @@ router.post('/login', async (req, res) => {
 router.post('/logout', async (req, res) => {
     if (req.session.logged_in) {
         req.session.destroy(() => {
-            req.status(204).end();
+            res.status(204).end();
         })
     } else {
-        req.status(404).end();
+        res.status(404).end();
     }
 });
 

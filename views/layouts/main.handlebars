@@ -13,23 +13,23 @@
     <div class="container-fluid w-100 bg-info">
         <h1 class="text-left display-4 p-4">Tech Blog</h1>
         <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
-            {{#if loggedIn}}
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/homepage">Home</a>
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/post">Browse Posts</a>
+                </li>
+                {{#if logged_in}}
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Create Post<span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/api/post">Browse Posts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" id="logout" href="#">Logout</a>
                 </li>
                 {{else}}
-                <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
+                {{!-- <a href="/" class="navbar-item is-hoverable pt-1">homepage</a> --}}
                 <a href="/login" class="button is-primary">login</a>
-                {{/if}}
             </ul>
+            {{/if}}
             <form class="form-inline d-flex flex-row my-2 my-lg-0">
                 <input class="form-control mr-sm-2 p-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0 d-inline-flex" type="submit">Search</button>
@@ -40,20 +40,24 @@
 
 <main class="container">
     <h1 class="display-2 py-5">Hello, User</h1>
-    {{{ body }}}
+
+    <body>
+        {{{ body }}}
+    </body>
 </main>
+{{!--
+<script src="/js/logout.js"></script> --}}
 
 <footer class="footer rows p-4 text-center">
-    <div class="row-is-full content has-text-centered">
+    {{!-- <div class="row-is-full content has-text-centered">
         <p>
-            <a href="/">homepage</a>{{#if loggedIn}} |
-            <a href="/dashboard/">dashboard</a> |
-            <a href="/dashboard/create/">create new post</a>
+            <a href="/homepage">homepage</a>{{#if logged_in}} |
+            <a href="/homepage/create/">create new post</a>
             {{else}}
             | <a href="/login/">login</a>
             {{/if}}
         </p>
-    </div>
+    </div> --}}
     <div class="row-is-full content has-text-centered">
         <p>
             <strong>A tech blog</strong> by<a href="https://ahooper00@github.com"> Amelia Hooper</a>
