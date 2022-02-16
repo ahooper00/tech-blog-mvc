@@ -15,7 +15,7 @@ const addPostFormHandler = async (event) => {
     },
   });
   if (response.ok) {
-    document.location.replace("/homepage");
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }
@@ -42,9 +42,7 @@ const getSinglePost = async () => {
 }
 
 document
-  .querySelector(".post-form")
-  .addEventListener("submit", addPostFormHandler);
+  .querySelector(".post-form")?.addEventListener("submit", addPostFormHandler);
 
   document
-  .querySelector(".singlePost")
-  .addEventListener("submit", getSinglePost);
+  .querySelector(".singlePost")?.addEventListener("submit", getSinglePost);

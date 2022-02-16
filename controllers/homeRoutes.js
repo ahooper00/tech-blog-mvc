@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
-router.get('/homepage', (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll(
         {
             attributes: [
@@ -20,7 +20,7 @@ router.get('/homepage', (req, res) => {
         })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('homepage', {
+            res.render('home', {
                 posts,
                 logged_in: req.session.logged_in
             });
@@ -33,7 +33,7 @@ router.get('/homepage', (req, res) => {
 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/homepage');
+        res.redirect('/');
         return;
     }
 
@@ -42,7 +42,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/homepage');
+        res.redirect('/');
         return;
     }
 

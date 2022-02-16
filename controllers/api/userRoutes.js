@@ -113,13 +113,10 @@ router.post('/login', async (req, res) => {
         }
 
         // If user data matches what is saved in database, show success message
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.username = userData.username;
-            req.session.logged_in = true;
-
-            res.status(200).json({ message: "Successfully logged in!" });
-        });
+        req.session.user_id = userData.id;
+        req.session.username = userData.username;
+        req.session.logged_in = true;
+        res.status(200).json({ message: "Successfully logged in!" });
     } catch (err) {
         res.status(400).json(err)
     }

@@ -24,8 +24,8 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8],
-                is: /^[0-9a-f]{64}$/,
+                len: [8]
+                // is: /^[0-9a-z]{64}$/,
             },
         },
     },
